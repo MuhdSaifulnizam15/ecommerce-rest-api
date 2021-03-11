@@ -18,7 +18,7 @@ exports.signUp = (req, res, next) => {
             throw error;
         })
         .then(hash => {
-            const user = createUser(req.body.email, hash, first_name, last_name);
+            const user = createUser(req.body.email, hash, req.body.first_name, req.body.last_name);
             return user.save();
         })
         .then(result => {
@@ -88,7 +88,7 @@ exports.deleteUser = (req, res, next) => {
         });
 }
 
-function createUser(email, hash){
+function createUser(email, hash, first_name, last_name){
     return new User({
         _id: new mongoose.Types.ObjectId(),
         email: email,

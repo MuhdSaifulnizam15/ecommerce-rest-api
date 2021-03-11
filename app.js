@@ -33,8 +33,8 @@ app.use((req, res, next) => {
 
 // Routes which should handle requests
 app.use('/products', productRoutes);
-app.use('./orders', orderRoutes);
-app.use('./users', userRoutes);
+app.use('/orders', orderRoutes);
+app.use('/users', userRoutes);
 
 // Handle Error Requests
 app.use((req, res, next) => {

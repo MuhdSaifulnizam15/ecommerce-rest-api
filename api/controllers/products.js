@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const product = require('../models/product');
 const Product = require('../models/product');
 
 exports.getAllProducts = (req, res, next) => {
@@ -46,8 +45,8 @@ exports.getOneProduct = (req, res, next) => {
 };
 
 exports.createOneProduct = (req, res, next) => {
-    const product = this.createProduct(req);
-
+    const product = createProduct(req);
+    console.log('product created');
     product
         .save()
         .then(product => {
@@ -105,6 +104,6 @@ function createProduct(req){
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         price: req.body.price,
-        productImage: req.body.productImage
+        productImage: req.file.path
     });
 }

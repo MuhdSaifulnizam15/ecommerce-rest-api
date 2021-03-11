@@ -24,7 +24,7 @@ const ProductController = require('../controllers/products');
 
 router.get('/', checkAuth, ProductController.getAllProducts);
 
-router.post('/', checkAuth, upload.single('productimage'), ProductController.createOneProduct);
+router.post('/', checkAuth, upload.single('productImage'), ProductController.createOneProduct);
 
 router.get('/:productId', checkAuth, ProductController.getOneProduct);
 
